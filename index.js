@@ -35,7 +35,7 @@ function dnxRunner(dnxCommand, options) {
 
   if (options.run === true) {
     if(isWin) {
-      commands.push('@powershell -NoProfile -ExecutionPolicy unrestricted -Command "for(;;) { Write-Output \"Starting...\"; dnx-watch ' + dnxCommand + ' }"');
+      commands.push('@powershell -NoProfile -ExecutionPolicy unrestricted -Command "for(;;) { dnx-watch ' + dnxCommand + ' | tee-filter -filter { $_ -match \'Application started\' } -filePath dnx-watch.log -Append }"');
     } else {
       commands.push("sh -c 'while true; do echo \"Starting...\"; dnx-watch " + dnxCommand + '; done\'')
     }
