@@ -1,28 +1,72 @@
 {
-  "name": "gulp-dnx",
-  "version": "0.3.0",
+  "_args": [
+    [
+      "gulp-dnx@git+https://github.com/qbikez/gulp-dnx.git",
+      "f:\\legimi\\nowaera.hg\\Platform\\src\\Website\\NowaEra.Server.Website.vnext"
+    ]
+  ],
+  "_from": "git+https://github.com/qbikez/gulp-dnx.git",
+  "_id": "gulp-dnx@0.3.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/gulp-dnx",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/qbikez/gulp-dnx/master/package.json",
+      "gitUrl": "git://github.com/qbikez/gulp-dnx.git",
+      "httpsUrl": "git+https://github.com/qbikez/gulp-dnx.git",
+      "shortcut": "github:qbikez/gulp-dnx",
+      "ssh": "git@github.com:qbikez/gulp-dnx.git",
+      "sshUrl": "git+ssh://git@github.com/qbikez/gulp-dnx.git",
+      "type": "github"
+    },
+    "name": "gulp-dnx",
+    "raw": "gulp-dnx@git+https://github.com/qbikez/gulp-dnx.git",
+    "rawSpec": "git+https://github.com/qbikez/gulp-dnx.git",
+    "scope": null,
+    "spec": "git+https://github.com/qbikez/gulp-dnx.git",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "git+https://github.com/qbikez/gulp-dnx.git#b96804e528712ede1ba9cb63690c2b98408e7594",
+  "_shasum": "b4c6cb0c0bfdf737d1431208b6de72d25b88fc54",
+  "_shrinkwrap": null,
+  "_spec": "gulp-dnx@git+https://github.com/qbikez/gulp-dnx.git",
+  "_where": "f:\\legimi\\nowaera.hg\\Platform\\src\\Website\\NowaEra.Server.Website.vnext",
+  "author": {
+    "name": "Tugberk Ugurlu"
+  },
+  "bugs": {
+    "url": "https://github.com/tugberkugurlu/gulp-dnx/issues"
+  },
+  "dependencies": {
+    "gulp-shell": "github:luisrudge/gulp-shell",
+    "gulp-util": "^3.0.5",
+    "lodash": "^3.9.3"
+  },
   "description": "Gulp plugin for ASP.NET vNext",
+  "devDependencies": {},
+  "gitHead": "b96804e528712ede1ba9cb63690c2b98408e7594",
+  "homepage": "https://github.com/tugberkugurlu/gulp-dnx",
+  "keywords": [
+    "aspnet",
+    "aspnetvnext",
+    "dnx",
+    "dotnet",
+    "gulp"
+  ],
+  "license": "MIT",
   "main": "index.js",
+  "name": "gulp-dnx",
+  "optionalDependencies": {},
+  "readme": "# gulp-dnx\r\nGulp plugin for ASP.NET 5. You can use this plugin to integrate ASP.NET 5 `dnu build`, `dnu restore` and `dnx` command execution (for the commands available inside you project.json file). Check out the [example](/example/) inside the repository.\r\n\r\n## Installation\r\nYou can install gulp-dnx plugin through npm:\r\n\r\n```\r\nnpm install gulp-dnx\r\n```\r\n\r\nPreferably, you can save this as dev dependency:\r\n\r\n```\r\nnpm install gulp-dnx --save-dev\r\n```\r\n\r\n## Usage\r\n\r\n```javascript\r\nvar gulp = require('gulp'),\r\n    dnx = require(\"gulp-dnx\");\r\ngulp.task('default', function(cb) {\r\n    return gulp.start('dnx-run');\r\n});\r\ngulp.task('dnx-run', dnx('kestrel'));\r\n```\r\n\r\nThe default function restores the packages according to your project.json file and runs the web command inside the project.json file. You can pass a few options to this to choose what's actually going to run:\r\n\r\n```javascript\r\n// the default options\r\nvar options = {\r\n    restore: true,\r\n    build: false,\r\n    run: true,\r\n    cwd: './'\r\n};\r\nvar dnxCommand = 'web';\r\ngulp.task('dnx-run', dnx(dnxCommand, options));\r\n```\r\n\r\nThere are also shorthand methods for specific tasks:\r\n\r\n```javascript\r\n//runs the project.json's command 'kestrel'\r\ngulp.task('dnx-run', dnx('kestrel'));\r\n// only restores the packages\r\ngulp.task('dnu-restore', dnx.restore());\r\n// only builds the project\r\ngulp.task('dnu-build', dnx.build());\r\n// restores the packages and builds the project\r\ngulp.task('dnu-restore-build', dnx.restoreBuild());\r\n```\r\n\r\ngulp-dnx also integrates with `dnx --watch` to run your commands. So, it will restart your server when you change a code file.\r\n\r\n### cwd\r\nYou can change the working directory for the specific command to run passing `cwd` as an option to the main method or as parameter to the shorthand methods.\r\n\r\n```javascript\r\n//assuming project.json is inside the 'server' directory\r\nvar options = {\r\n    cwd: './server/'\r\n};\r\ngulp.task('dnx-run', dnx('web', options));\r\n\r\n//using the shorthand methods\r\ngulp.task('dnx-restore', dnx.restore('./server/'));\r\ngulp.task('dnu-build', dnx.build('./server/'));\r\ngulp.task('dnu-restore-build', dnx.restoreBuild('./server/'));\r\n```\r\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git://github.com/tugberkugurlu/gulp-dnx.git"
   },
-  "keywords": [
-    "aspnet",
-    "aspnetvnext",
-    "dotnet",
-    "dnx",
-    "gulp"
-  ],
-  "author": "Tugberk Ugurlu",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tugberkugurlu/gulp-dnx/issues"
-  },
-  "homepage": "https://github.com/tugberkugurlu/gulp-dnx",
-  "dependencies": {
-    "gulp-shell": "luisrudge/gulp-shell",
-    "gulp-util": "^3.0.5",
-    "lodash": "^3.9.3"
-  }
+  "version": "0.3.0"
 }
