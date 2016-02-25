@@ -45,7 +45,8 @@
   "dependencies": {
     "gulp-shell": "github:luisrudge/gulp-shell",
     "gulp-util": "^3.0.5",
-    "lodash": "^3.9.3"
+    "lodash": "^3.9.3",
+    "process": "*"
   },
   "description": "Gulp plugin for ASP.NET vNext",
   "devDependencies": {},
