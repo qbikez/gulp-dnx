@@ -43,7 +43,7 @@
     "url": "https://github.com/tugberkugurlu/gulp-dnx/issues"
   },
   "dependencies": {
-    "gulp-shell": "github:luisrudge/gulp-shell",
+    "gulp-shell": "https://github.com/qbikez/gulp-shell",
     "gulp-util": "^3.0.5",
     "lodash": "^3.9.3",
     "process": "*"
